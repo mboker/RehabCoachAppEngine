@@ -1,0 +1,209 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://just-stock-499.appspot.com/_ah/api",
+  "name" : "feedbackendpoint",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://just-stock-499.appspot.com/_ah/spi",
+    "deadline" : 10.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "ownerDomain" : "example.com",
+  "ownerName" : "example.com",
+  "packagePath" : "rehab_coachv1",
+  "methods" : {
+    "feedbackendpoint.updateFeedback" : {
+      "path" : "feedback",
+      "httpMethod" : "PUT",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.example.rehab_coach_app_engine.FeedbackEndpoint.updateFeedback",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "feedbackendpoint.insertFeedback" : {
+      "path" : "feedback",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.example.rehab_coach_app_engine.FeedbackEndpoint.insertFeedback",
+      "request" : {
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "feedbackendpoint.getFeedback" : {
+      "path" : "feedback/{id}",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.example.rehab_coach_app_engine.FeedbackEndpoint.getFeedback",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
+    "feedbackendpoint.removeFeedback" : {
+      "path" : "feedback/{id}",
+      "httpMethod" : "DELETE",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.example.rehab_coach_app_engine.FeedbackEndpoint.removeFeedback",
+      "request" : {
+        "parameters" : {
+          "id" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "empty"
+      }
+    },
+    "feedbackendpoint.listFeedback" : {
+      "path" : "feedback",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ ],
+      "clientIds" : [ "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.example.rehab_coach_app_engine.FeedbackEndpoint.listFeedback",
+      "request" : {
+        "parameters" : {
+          "cursor" : {
+            "type" : "string",
+            "required" : false
+          },
+          "limit" : {
+            "type" : "int32",
+            "required" : false
+          }
+        },
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "Feedback" : {
+        "id" : "Feedback",
+        "type" : "object",
+        "properties" : {
+          "id" : {
+            "type" : "string"
+          },
+          "response1" : {
+            "type" : "integer"
+          },
+          "response2" : {
+            "type" : "integer"
+          },
+          "response3" : {
+            "type" : "integer"
+          },
+          "response4" : {
+            "type" : "integer"
+          },
+          "response5" : {
+            "type" : "integer"
+          },
+          "activityID" : {
+            "type" : "integer"
+          },
+          "userID" : {
+            "type" : "string"
+          }
+        }
+      },
+      "CollectionResponse_Feedback" : {
+        "id" : "CollectionResponse_Feedback",
+        "type" : "object",
+        "properties" : {
+          "items" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "Feedback"
+            }
+          },
+          "nextPageToken" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "com.example.rehab_coach_app_engine.FeedbackEndpoint.updateFeedback" : {
+        "request" : {
+          "$ref" : "Feedback"
+        },
+        "response" : {
+          "$ref" : "Feedback"
+        }
+      },
+      "com.example.rehab_coach_app_engine.FeedbackEndpoint.insertFeedback" : {
+        "request" : {
+          "$ref" : "Feedback"
+        },
+        "response" : {
+          "$ref" : "Feedback"
+        }
+      },
+      "com.example.rehab_coach_app_engine.FeedbackEndpoint.getFeedback" : {
+        "response" : {
+          "$ref" : "Feedback"
+        }
+      },
+      "com.example.rehab_coach_app_engine.FeedbackEndpoint.removeFeedback" : {
+      },
+      "com.example.rehab_coach_app_engine.FeedbackEndpoint.listFeedback" : {
+        "response" : {
+          "$ref" : "CollectionResponse_Feedback"
+        }
+      }
+    }
+  }
+}
